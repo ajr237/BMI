@@ -16,19 +16,22 @@ while True:
 	if __name__ == '__main__':
 		while True:
 			try:			
-				mass = float(input('Mass (kg): '))
+				mass = input('Mass (kg): ')
 				if mass == '': 
-					break   #Exits program when user enters a blank entry.
-				height = float(input('Height (m): '))
-				if height == '':
-					break
-			except ValueError:
-				print('Value must be a number. Please retry')
-				break
-			except NameError:
-				print('name error')
-				break
-			except:
-				print('An unknown error has occurred')
+					break   #restarts program when user enters a blank entry.
+				mass = float(mass)
 				
-			print('Your BMI is',BMI(mass, height), 'This is classified as', bmi_class(BMI(mass, height)))
+				height = input('Height (m): ')
+				if height == '':
+					break	#restarts program when user enters a blank entry.
+				height = float(height)
+				
+				if BMI(mass, height) <220:					
+					print('Your BMI is',BMI(mass, height), 'This is classified as', bmi_class(BMI(mass, height)))
+				else:
+					print('values entered have resulted in a BMI far too large for any human being. this is not designed for elephants.'.title())
+			except ValueError:
+				print('value must be a number. please retry'.title())	#restarts when any value other than a number is entered.
+			except:
+				print('an unknown error has occurred'.title())	#catches any other unknown exception.
+				
