@@ -8,6 +8,8 @@ def bmi_class(bmi_score):
 	"""Classifies a BMI score"""
 	if bmi_score <18.5:
 		bmi_class = 'Underweight'
+	elif bmi_score >=18.5 and bmi_score <25:
+		bmi_class = 'Healthy Weight'
 	else:
 		bmi_class = 'Will finish later'
 	return bmi_class
